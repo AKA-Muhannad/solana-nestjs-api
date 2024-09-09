@@ -25,7 +25,7 @@ export class SolanaService {
         maxSupportedTransactionVersion: 0,
       };
       /**
-       * TODO: To be checked the below with bloc
+       * TODO: To be checked the below with block
        * Deprecated symbol used, consult docs for better alternative
        * TS6387: The signature
        * (slot: number, rawConfig?: GetBlockConfig): Promise<BlockResponse>

@@ -25,17 +25,21 @@ export class SolanaService {
         maxSupportedTransactionVersion: 0,
       };
       /**
-       * TODO: To be checked the below with block
+       * TODO: To be checked the below with block variable
        * Deprecated symbol used, consult docs for better alternative
        * TS6387: The signature
        * (slot: number, rawConfig?: GetBlockConfig): Promise<BlockResponse>
        * of connection.getBlock is deprecated.
        * index. d. ts(3450, 8): The declaration was marked as deprecated here.
        * **/
-      const block = await connection.getBlock(blockNumber, config);
+      const block = await connection.getParsedBlock(blockNumber, config);
       this.logger.log(`connection ${JSON.stringify(connection)}`);
       this.logger.log(`block ${JSON.stringify(block)}`);
       return block;
-    } catch (error) {}
+    } catch (error) {
+      throw new Error(
+        `${error.message} for getBlockData from shared soloana service`,
+      );
+    }
   }
 }
